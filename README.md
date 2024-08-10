@@ -1,5 +1,6 @@
 # Debatato!
 
+[Debatato!](https://debate-chat-ngpo.vercel.app)
 ### Groq와 llama3를 이용한 Ai 토론 웹페이지.
 groq - LLM(대형 언어 모델)용 맞춤형 추론 언어 처리 장치(LPU)를 개발하는 회사이며, 현재 API를 제공해줍니다!
 
@@ -10,7 +11,7 @@ Next - Groq 사이의 REST API 요청 처리
 
 Recoil을 이용한 상태 관리
 
-Tailwindcss, Next, Vercel, Vercel Ai SDK 
+: Tailwindcss, Next, Vercel, Vercel Ai SDK 
 
 #### 향후 구현 사항
 토론 중간, 사회자 Ai의 중재 및 논리적 우세 시각화
