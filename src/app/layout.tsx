@@ -7,8 +7,11 @@ const notoSansKr = Noto_Sans_KR({ subsets: ['latin'] })
 
 
 export const metadata: Metadata = {
-  title: "rediMaid",
-  description: "redicaled rockbottom",
+  title: "Debatato!",
+  description: "Debatato! A simple debate Web that allows you to debate with AI.",
+  icons: {
+    icon: "/images/favicon.ico",
+  },
 };
 
 export default function RootLayout({
