@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import RecoilRootWrapper from "@/components/Recoil/RecoilWrapper";
+import { Noto_Sans_KR } from 'next/font/google';
+const notoSansKr = Noto_Sans_KR({ subsets: ['latin'] })
 
 
 export const metadata: Metadata = {
@@ -16,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body>
+      <body className={notoSansKr.className}>
       <RecoilRootWrapper>
                 	{children}
 				</RecoilRootWrapper>

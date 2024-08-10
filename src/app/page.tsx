@@ -1,23 +1,14 @@
-import { generateText } from 'ai';
+import { useState } from 'react';
 import { createOpenAI as createGroq } from '@ai-sdk/openai';
-
-const groq = createGroq({
-  baseURL: 'https://api.groq.com/openai/v1',
-  apiKey: process.env.GROQ_API_KEY,
-});
-
-const { text } = await generateText({
-  model: groq('llama-3.1-405b-reasoning'),
-  prompt: 'What is love?',
-});
+import MainSuggeset from '../components/MainSuggest';
 
 export default function Home() {
 
     return (
-        <div>
-            <h1>Home</h1>
+        <div className='grid place-items-center'>
+            <h1>Debatato</h1>
             <p>Welcome to the home page!</p>
+            <MainSuggeset/>
         </div>
     );
 }
-6

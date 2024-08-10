@@ -1,18 +1,22 @@
 import { atom } from 'recoil';
-const maxindex = 5;
-const minindex = 0;
+import { recoilPersist } from "recoil-persist";
 
+const sessionStorage = 
+      typeof window !== 'undefined' ? window.sessionStorage : undefined
 
-export const Colorindex = atom<number>({
-  key: 'Colorindex',
-  default: 0,
-  effects: [
-    ({onSet, setSelf}) => {
-      onSet(Colorindex => {
-        if (Colorindex > maxindex) {
-          setSelf(minindex);
-        }
-      });
-    },
-  ],
+const { persistAtom } = recoilPersist({
+  key: "sessionPersist",
+  storage: sessionStorage,
+});
+
+export const Topic = atom<string>({
+  key: 'Topic',
+  default: '',
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const Pros = atom<boolean>({
+  key: 'Pros',
+  default: true,
+  effects_UNSTABLE: [persistAtom],
 });
