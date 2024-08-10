@@ -31,7 +31,7 @@ export default function Page() {
   return (
     <div className=' m-2'>
 {loaded && <h1 className=' inline-block border-2 border-black my-2 p-2 rounded-lg lg:text-2xl font-bold text-gray-900 text-sm '>{topicState}</h1>}
-<div className=' h-[60vh] overflow-y-auto border-2 border-black lg:text-base text-sm w-full lg:w-[95vw] rounded-lg'>
+<div className=' h-[60vh] overflow-y-auto border-2 border-black lg:text-base text-sm w-full lg:w-[95vw] rounded-lg p-2'>
       {messages.map((message, index) => (
         <div key={message.id}>
           {message.role === 'user' ? `User${(index / 2) % 2 === 0 ? 1 : 2}: ` : 'AI: '}

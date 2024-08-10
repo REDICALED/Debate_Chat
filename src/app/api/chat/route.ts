@@ -21,7 +21,8 @@ export async function POST(req: Request) {
 Topic: ${topicState}
 User's position: ${prosState ? 'pro' : 'con'}
 You must provide logical arguments against the user's position and engage in a logical and polite discussion to convince the user so simply and clearly and shortly. 
-All conversations must be in Korean.`,  // 한국어로만 응답하도록 지시
+All conversations must!!!!!!!!!!!!!!!!!!!!!!! be in Korean.
+DO NOT USE ENGLISH ONLY KOREAN.`,  // 한국어로만 응답하도록 지시
       messages: convertToCoreMessages(messages),
     });
 

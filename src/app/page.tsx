@@ -5,9 +5,8 @@ import MainSuggeset from '../components/MainSuggest';
 export default function Home() {
 
     return (
-        <div className='grid place-items-center'>
-            <h1>Debatato</h1>
-            <p>Welcome to the home page!</p>
+        <div className=' grid place-items-center'>
+            <h1 className=' text-xl lg:text-3xl mt-10 my-2'>Debatato!</h1>
             <MainSuggeset/>
         </div>
     );
