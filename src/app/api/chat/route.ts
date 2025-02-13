@@ -17,7 +17,7 @@ export async function POST(req: Request) {
 
     const result = await streamText({
       model: groq('llama3-8b-8192'),
-      system: `You are an AI debater. Take the opposite position to the user's on the given topic.
+      system: `You are an AI debater. Take the opposite position to the user's on the given topic!
 Topic: ${topicState}
 User's position: ${prosState ? 'pro' : 'con'}
 You must provide logical arguments against the user's position and engage in a logical and polite discussion to convince the user so simply and clearly and shortly. 
