@@ -3,6 +3,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import RecoilRootWrapper from "@/components/Recoil/RecoilWrapper";
 import { Noto_Sans_KR } from 'next/font/google';
+import '@mantine/core/styles.css';
+
+import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
+
 const notoSansKr = Noto_Sans_KR({ subsets: ['latin'] })
 
 
@@ -23,8 +27,8 @@ export default function RootLayout({
     <html>
       <body className={notoSansKr.className}>
       <RecoilRootWrapper>
-                	{children}
-				</RecoilRootWrapper>
+        <MantineProvider>{children}</MantineProvider>
+      </RecoilRootWrapper>
       </body>
     </html>
   );

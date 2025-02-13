@@ -30,13 +30,25 @@ export default function Page() {
 
   return (
     <div className=' m-2'>
-{loaded && <h1 className=' inline-block border-2 border-black my-2 p-2 rounded-lg lg:text-2xl font-bold text-gray-900 text-sm '>{topicState}</h1>}
-<div className=' h-[60vh] overflow-y-auto border-2 border-black lg:text-base text-sm w-full lg:w-[95vw] rounded-lg p-2'>
+{loaded && <h1 className=' inline-block border-2 border-gray-500 my-2 p-2 rounded-lg lg:text-2xl font-bold text-gray-900 text-sm '>{topicState}</h1>}
+<div className=' h-[60vh] overflow-y-auto border-2 border-gray-500 lg:text-base text-sm w-full lg:w-[95vw] rounded-lg p-2'>
       {messages.map((message, index) => (
-        <div key={message.id}>
-          {message.role === 'user' ? `User${(index / 2) % 2 === 0 ? 1 : 2}: ` : 'AI: '}
+        <div
+        key={message.id}
+        className={`flex ${
+          message.role === 'user' ? 'justify-end' : 'justify-start'
+        }`}
+      >
+        <div
+          className={`border-2 border-black rounded-lg ${
+            message.role === 'user' ? 'bg-gray-300' : 'bg-white'
+          } p-2 my-2 max-w-[40vw]`}
+        >
+          {message.role === 'user' ? `나: ` : 'Debatato: '}
           {message.content}
         </div>
+      </div>
+      
       ))}
     </div>
 
@@ -44,9 +56,9 @@ export default function Page() {
       <form onSubmit={handleSubmit}>
       <textarea
       id="OrderNotes"
-      className=" pl-2 pt-2 w-full lg:w-[90vw] resize-none border-2 border-gray-600 px-0 align-top sm:text-sm rounded-lg"
+      className=" pl-2 pt-2 w-full lg:w-[95vw] resize-none border-2 border-gray-500 px-0 align-top lg:text-lg sm:text-sm rounded-lg"
       rows={4}
-      placeholder="Ai와 토론해보세용!"
+      placeholder="debatato에게 반박해보세요!"
       name="prompt" 
       value={input} 
       onChange={handleInputChange}

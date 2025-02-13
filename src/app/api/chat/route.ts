@@ -17,12 +17,11 @@ export async function POST(req: Request) {
 
     const result = await streamText({
       model: groq('llama3-8b-8192'),
-      system: `As an AI debater, you are required to support a position opposite to the user's on a given topic. 
+      system: `You are an AI debater. Take the opposite position to the user's on the given topic.
 Topic: ${topicState}
 User's position: ${prosState ? 'pro' : 'con'}
 You must provide logical arguments against the user's position and engage in a logical and polite discussion to convince the user so simply and clearly and shortly. 
-All conversations must!!!!!!!!!!!!!!!!!!!!!!! be in Korean.
-DO NOT USE ENGLISH ONLY KOREAN.`,  // 한국어로만 응답하도록 지시
+Respond with a **short and clear** argument (3-4 sentences) to persuade the user. Use only Korean.`,  // 한국어로만 응답하도록 지시
       messages: convertToCoreMessages(messages),
     });
 

@@ -4,6 +4,8 @@ import { useEffect, useState,  } from 'react';
 import { Topic, Pros } from '@/Atoms/ColorAtom';
 import { useRecoilState } from 'recoil';
 import { useRouter } from 'next/navigation';
+import { Button, TextInput } from '@mantine/core';
+import {HeroBullets} from '@/components/heroheader';
 
 export default function Home() {
     const { messages, input, handleInputChange, handleSubmit } = useChat({
@@ -33,8 +35,11 @@ export default function Home() {
       useEffect(() => {
         setLoaded(true);
       }, []);
+
     return (
         <div className='grid place-items-center '>
+            <HeroBullets/>
+
             <div className='flex'>
             <div className=' rounded-lg font-semibold text-xs overflow-y-auto lg:text-2xl grid place-items-center h-[20vh] text-center border-2 border-black w-full mx-2 lg:w-[50vw] '>
                     {topicState}
@@ -42,24 +47,23 @@ export default function Home() {
             </div>
             
              <div className=' mt-4 grid-cols-3 grid place-items-center w-[100vw] lg:w-[50vw]'>
-             <button onClick={()=>handleClick(true)} className={`transition-colors duration-150 w-5/6 lg:w-[10vw] h-1/2 mt-1 font-medium rounded-lg me-2 text-white 
+             {/* <button onClick={()=>handleClick(true)} className={`transition-colors duration-150 w-5/6 lg:w-[10vw] h-1/2 mt-1 font-medium rounded-lg me-2 text-white 
                 ${topicState !== '' ? 'bg-blue-600 hover:bg-blue-900' : 'bg-blue-900 pointer-events-none'} 
                 focus:ring-gray-300
                 inline-block rounded border border-current px-8 py-3 lg:text-xl text-xs font-medium transition hover:rotate-2 hover:scale-110 focus:outline-none focus:ring active:text-black-500`}>
                 찬성 / 예
-                </button>                
-                <form onSubmit={handleSubmit}>
-                <textarea
-                id="OrderNotes"
-                className=" w-full pl-2 lg:w-full resize-none border-2 border-gray-600 px-0 align-top lg:text-xl text-xs"
-                rows={4}
-                placeholder="토론 키워드를 입력하세요"
-                name="prompt" 
-                value={input} 
+                </button> */}
+                <Button onClick={()=>handleClick(true)} size="xl" disabled={ topicState !== '' ? false : true} variant="filled">찬성 / 예</Button>             
+                <form onSubmit={handleSubmit} >
+                
+                <TextInput
+                value={input}
+                size="xl"
+                placeholder="주제를 입력하세요"
                 onChange={handleInputChange}
-                ></textarea>
+              />
                 <div className='grid place-items-center'>
-                    <button type="submit" className=' mt-4 group relative inline-block overflow-hidden border border-black px-8 py-3 focus:outline-none focus:ring'>
+                    <button type="submit" className=' rounded-md mt-4 group relative inline-block overflow-hidden border border-black px-8 py-3 focus:outline-none focus:ring'>
 
                     <span
               className="absolute inset-x-0 top-0 h-[2px] bg-black transition-all group-hover:h-full group-active:bg-black"
@@ -74,11 +78,8 @@ export default function Home() {
                     </button>
                 </div>
                 </form>
-                <button onClick={()=>handleClick(false)} className={`transition-colors duration-150 w-5/6 lg:w-[10vw] h-1/2 mt-1 font-medium rounded-lg me-2 text-white 
-                ${topicState !== '' ? 'bg-red-600 hover:bg-red-900' : 'bg-red-900 pointer-events-none'} 
-                inline-block rounded border border-current px-8 py-3 lg:text-xl text-xs font-medium transition hover:-rotate-2 hover:scale-110 focus:outline-none focus:ring active:text-black-500`}>
-                반대 / 아니오
-                </button>
+                <Button onClick={()=>handleClick(false)} size="xl" color="red" disabled={ topicState !== '' ? false : true} variant="filled">반대 / 아니오</Button>             
+
                 </div>       
         </div>
     );
